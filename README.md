@@ -39,9 +39,18 @@ To bring a project in — new or existing, in any state — follow the procedure
 
 ### Steer defines, project overrides
 
-The steer holds the canonical ways of working. A project's local `.agents/` states only what is **local** (true for this project alone) or an **override** (this project deliberately diverges from the steer). Where a project is silent, the steer governs. Where a project has earned a local rule, the local rule wins **and the divergence is marked** so a reader knows it's a deliberate scar, not drift.
+The steer holds the canonical ways of working. A project's local agent directory states only what is **local** (true for this project alone) or an **override** (this project deliberately diverges from the steer). Where a project is silent, the steer governs. Where a project has earned a local rule, the local rule wins **and the divergence is marked** so a reader knows it's a deliberate scar, not drift.
 
-The consequence: a new project inherits the whole practice by writing almost nothing, and a mature project's `prompt.md` gets *thinner* over time as its universal parts move into the steer and only its earned, project-specific rules remain.
+The consequence: a new project inherits the whole practice by writing almost nothing, and a mature project's local boot doc gets *thinner* over time as its universal parts move into the steer and only its earned, project-specific rules remain.
+
+### Two altitudes: directive on behavior, advisory on structure
+
+The steer speaks at two altitudes, and they are not the same:
+
+- **Behavior is directive.** The [spine](spine/) — engineering principles and agent conduct — is non-negotiable. Verify before claiming done, no sycophancy, security as default. These hold in every project, no proposing.
+- **Structure is advisory.** How a repo is *arranged* — what the agent directory is called, whether one agent context is enough or the work splits by purpose, where agent-facing docs physically live — is **derived from the repo's actual shape, proposed by the agent, and ratified by the operator.** The steer supplies the *criteria to reason with*, never the arrangement itself. Nothing structural is created or moved without the operator's yes.
+
+An agent adopting the practice must not read "propose, don't impose" at the structural layer and soften the conduct spine. Behavior is fixed; arrangement is proposed.
 
 ## Design constraints (for anyone editing this repo)
 
@@ -50,6 +59,8 @@ The consequence: a new project inherits the whole practice by writing almost not
 3. **Rules carry their *why*.** A rule without a reason can't be applied to an edge case and can't be revised deliberately. State the reason, briefly.
 4. **No invented precision.** Qualitative guidance an agent can actually judge — not fabricated metrics (complexity thresholds, health indices, decay rates) that read authoritative but measure nothing.
 5. **Scars are welcome.** This repo evolves. When a lesson proves *universal* (not project-specific), it belongs here, with the reasoning that earned it. `git log` should read as the evolution of how work is done.
+6. **Mind the altitude.** If a piece of guidance answers *"how is this repo arranged?"* it is probably pitched too low. Restate it as the **criteria** by which an agent proposes an arrangement, and leave the operator as the ratifier. The steer names what must exist (the layers, the invariants) and how to reason about placement — not where things go in any given repo.
+7. **The correctness frame is not universal.** Most guidance here assumes work whose goal is correct software. Some work is *exploratory* — creative, experimental, research — where "done" is a captured learning and failure is expected output, not a violation. Where a rule assumes correctness-as-goal, say so, so an exploratory track can apply it in its own frame.
 
 ## Reference exemplars
 
