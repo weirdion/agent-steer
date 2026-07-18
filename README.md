@@ -8,7 +8,7 @@ This repository is how a project's agent learns *how work is done here* and *how
 
 - **It is** a small, indexed set of durable guidance in three layers: universal engineering + conduct principles, ways of working, and collaboration preferences.
 - **It is not** a template to copy, a set of files to symlink, or a per-project ruleset. Nothing here is duplicated into a project. A project *points at* this repo and reads it.
-- **It is not** project-specific. Nothing here names a repo, a stack, a machine, a path, or a person. Project-specific rules are *earned by that project* and live in that project's own `.agents/` directory. See [Steer defines, project overrides](#steer-defines-project-overrides).
+- **It is not** project-specific. Nothing here names a repo, a stack, a machine, a path, or a person. Project-specific rules are *earned by that project* and live in that project's own agent directory (whatever it's called — the steer blesses no specific name). See [Steer defines, project overrides](#steer-defines-project-overrides).
 
 ## The three layers
 
