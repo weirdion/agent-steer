@@ -4,9 +4,11 @@ Scaffolding a fresh repo into the practice. Because the steer carries the common
 
 ## The goal
 
-Stand up a project `.agents/` that: points at the steer, captures what *this* project is, and gives a fresh session a clean boot. Not more. Resist the urge to pre-write rules the project hasn't earned yet — a new project has no scars, so it should have almost no OVERRIDE content. Its rules will accrete as it drifts and gets corrected.
+Stand up a project agent directory that: points at the steer, captures what *this* project is, and gives a fresh session a clean boot. Not more. Resist the urge to pre-write rules the project hasn't earned yet — a new project has no scars, so it should have almost no OVERRIDE content. Its rules will accrete as it drifts and gets corrected.
 
 ## Steps
+
+0. **Propose the arrangement.** Before creating anything, look at the project's shape and propose the structure — what the agent directory is called, whether one context is enough or the work splits by purpose, where agent-facing docs live, which coding tools need a thin entrypoint (see [../ways-of-working/boot-contract.md](../ways-of-working/boot-contract.md) for the criteria). For a fresh, single-purpose project this is usually trivial — one agent directory — but say what you're doing and get the operator's yes before laying down structure. Structure is proposed, not imposed.
 
 1. **Add the steer pointer.** The first item in the project's read-first sequence points at the steer's `INDEX.md`: load the spine, pull ways-of-working and preferences on relevance, then read the local files (which state only divergence). See [override-convention.md](override-convention.md).
 
@@ -22,6 +24,6 @@ Stand up a project `.agents/` that: points at the steer, captures what *this* pr
 
 ## What "done" looks like
 
-A fresh session can read the steer, then the project's `.agents/`, and know: what this is, how it's shaped, what's decided, what's deferred, and where work stands. If that boot works, the scaffold is complete. Everything else the project earns as it grows.
+A fresh session can read the steer, then the project's agent directory, and know: what this is, how it's shaped, what's decided, what's deferred, and where work stands. If that boot works, the scaffold is complete. Everything else the project earns as it grows.
 
 *Why start thin:* a new project loaded up with inherited-looking rules it never earned is cargo cult — nobody believes rules that don't trace to a scar. Start with identity and the empty homes; let the specifics accrete from real experience. The steer supplies the discipline; the project supplies the story, over time.

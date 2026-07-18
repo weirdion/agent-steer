@@ -1,6 +1,6 @@
 # Override Convention
 
-The steer defines the canonical way of working. A project's local `.agents/` states only what *diverges*. This file defines how that divergence is marked, so a reader can always tell an inherited default from a deliberate local choice.
+The steer defines the canonical way of working. A project's local agent directory states only what *diverges*. This file defines how that divergence is marked, so a reader can always tell an inherited default from a deliberate local choice.
 
 ## The rule
 
@@ -26,7 +26,7 @@ This is the same instinct as *document the why*: the reason is the part that doe
 
 ## The thinning effect
 
-A mature project adopted into the practice starts with a thick local `.agents/` — because it predates the steer and states everything itself. Over time, as its universal parts are recognized as *steer* material, they move up (or are simply deleted, because the steer already says them), and what remains is the LOCAL and OVERRIDE content: the project's actual, earned specifics.
+A mature project adopted into the practice starts with a thick local agent directory — because it predates the steer and states everything itself. Over time, as its universal parts are recognized as *steer* material, they move up (or are simply deleted, because the steer already says them), and what remains is the LOCAL and OVERRIDE content: the project's actual, earned specifics.
 
 A healthy adopted project trends toward a *thin* local layer — the steer carries the commons, the project carries its scars. If a project's local files restate things the steer already says, that's redundancy to trim, not content to keep. The test when trimming: **remove a local rule and ask whether the steer already covers it.** If yes, delete it. If removing it loses something real and project-specific, it was LOCAL — keep it, and make sure it's marked.
 

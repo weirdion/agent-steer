@@ -31,7 +31,7 @@ Read this first. Load the **spine** always. Pull **ways-of-working** and **prefe
 |---|---|
 | [adoption/new-project.md](adoption/new-project.md) | Scaffolding a fresh repo. |
 | [adoption/existing-project.md](adoption/existing-project.md) | Retrofitting a repo that already has code and history. |
-| [adoption/override-convention.md](adoption/override-convention.md) | Writing a project's local `.agents/` files that diverge from the steer. |
+| [adoption/override-convention.md](adoption/override-convention.md) | Writing a project's local agent-directory files that diverge from the steer. |
 
 ## Reference
 
