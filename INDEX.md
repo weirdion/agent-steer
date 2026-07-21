@@ -1,6 +1,6 @@
 # Index
 
-Read this first. Load the **spine** always. Pull **ways-of-working** and **preferences** entries only when the *when-this-applies* hook matches the task at hand. This is how the steer stays useful across a long session and across many projects — you carry the small always-on layer and reach for the rest on relevance, instead of ingesting everything and losing half of it.
+**On boot, read only this INDEX and everything under `spine/`. Do not read `ways-of-working/`, `preferences/`, `adoption/`, or `exemplars.md` until a *when-this-applies* hook below matches the task actually in front of you.** The frugal path is the default, not a choice — the spine is the small always-on layer; the rest is pulled on relevance, one file at a time, when its hook fires. Reading the whole steer up front is the failure this index exists to prevent: it inflates every boot with content the current task doesn't need, and an agent that ingests everything loses half of it by mid-session.
 
 ## Spine — load always
 
