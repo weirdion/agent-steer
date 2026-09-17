@@ -4,7 +4,34 @@ Settled choices about the steer itself, with date and rationale. Append-only —
 
 ---
 
-## 2026-07-20 — Accept the always-on spine cost; gate the rest; defer any spine restructure
+## 2026-09-17 — Which cross-project practices to promote, and what to leave out
+
+**Decision:** Promote a set of practices surfaced from another project's sessions (offered as candidates
+for the steer), each stripped to its generalizable rule with the originating project's specifics removed.
+Self-review became its **own** on-relevance file rather than a section of `verification.md`; the rest
+attached to existing files (workflow, knowledge-layers, collaboration, memory-discipline).
+
+**Why these:** each was a practice that had already earned its cost in real work, and two of them had
+independently recurred in a second project — the steer's stated bar for promotion (recurrence across
+projects = genuine invariant, not a guess; see `ways-of-working/knowledge-layers.md`).
+
+**Why self-review as its own file:** `verification.md` answers *does it work* (verify by running, the
+can't-verify case). The self-review pass answers a different question — *where is it wrong* — and is a
+distinct discipline (adversarial perspective shift + blast-radius checks outside the diff) substantial
+enough that folding it in would blur verification's focus. Loaded on relevance, not always-on: it applies
+before a commit/push, not every turn.
+
+**What was deliberately NOT promoted:**
+- **Defect-clustering heuristic** ("bugs cluster in protocol/glue code"). Kept as a one-line *calibration*
+  inside self-review, but **not** elevated to a steer rule — it's an empirical observation from one
+  codebase, not a durable invariant, and the steer stays principle-level. If wanted as reviewer
+  calibration it belongs in device memory, not the public steer.
+- **Memory-placement restructure.** The candidate largely duplicated existing `memory-discipline.md`
+  content (device-local vs repo-tracked, the project-or-operator test). Added **one** new crisp line
+  (wrong memory worse than none) rather than restructuring a layer split that already works.
+
+**The framing:** promotion is subtractive, not additive — the value is in what earns a place at the right
+altitude, and saying no to the rest is what keeps the steer from bloating into a project's changelog.
 
 **Decision:** Keep paying the ~3k-token always-on spine cost as-is. Do **not** trim or restructure the spine to save boot tokens. Instead, harden the INDEX so on-relevance layers are *not read at boot* — make the frugal path the default, not a choice the agent can skim past.
 
