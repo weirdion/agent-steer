@@ -42,6 +42,35 @@ When in doubt: log it, and if a future session would benefit from knowing, updat
 
 *Why the split matters:* if routine work bloats the durable context, the context stops being a reliable map — every read wades through noise. If significant changes only land in the session log, they scroll away and the next session rediscovers them by grepping prose. The trigger keeps the durable layer trustworthy and the volatile layer current.
 
+## One home per fact; everything else is a pointer
+
+Each fact has **exactly one home** — the layer that owns it — and every other mention points to that
+home rather than restating it. A decision lives in the decisions log (or an ADR); the architecture doc
+that touches it carries a one-line pointer, not a reworded copy. The moment the same fact is written out
+in two places, they drift independently: an edit updates one, the other silently becomes false, and now
+two sources disagree and the reader can't tell which is current.
+
+This applies hardest to docs that **describe decisions or behavior** — they go stale silently, because
+nothing errors when the code moves and the prose doesn't. Treat them with the same "verify before
+recommending" discipline as code: before relying on what a doc claims, check it still matches reality.
+Full text only where a fact has no other home; everywhere else, a pointer.
+
+*Why:* duplication isn't a convenience, it's a latent inconsistency. The single-home rule is what lets a
+reader trust that the one place they're looking is the place that's right.
+
+## Live docs hold live work, not history
+
+A live document — a working checklist, an in-flight-work list — holds only what's *active*. Its failure
+mode is quiet: finished items, resolved decisions, and fixed problems accumulate until it's a history
+file wearing a live doc's name, and the current state is buried in the backlog of the done. An item is
+**deleted when it closes** — its durable record is the commit and the session log, not a growing tail in
+the live doc. If closed items are worth keeping verbatim, move them to a separate archive; don't let them
+silt up the live surface.
+
+*Why:* the value of a live doc is that a glance shows the current state. Every closed item left in it is
+noise the next reader has to filter, and enough of them turn a live instrument into an archive nobody
+trusts as current.
+
 ## Defer at the moment of deferral
 
 When you deliberately punt on something — cut from scope, blocked, judged not worth it yet — it goes in the **backlog right then**, with its shape, why it's deferred, and what would pull it forward. Not "later." Not "it's in the commit message."

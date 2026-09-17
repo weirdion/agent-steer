@@ -39,4 +39,6 @@ Before writing a memory, ask: **is this lesson about *this project*, or about *t
 
 Memory is in git. Project memory: no secrets, no credentials, no personal detail beyond what the project already exposes. Anything promoted to the steer is **public and project-agnostic** — no project names, no stacks, no machines, no paths, no personal specifics. Guidance-level content is safe; identifying detail is not. When in doubt, state the principle without the instance.
 
+A wrong memory is worse than no memory — it's trusted and false. When you notice an entry that's stale or contradicted, fix or delete it **in the turn you notice it**, not "later"; a memory layer only stays worth reading if its entries can be trusted on sight.
+
 The same line applies to a project's **committed agent docs** (its `.agents/` boot doc, decisions, logs), not just memory: in a public repo they carry only what an agent needs to *operate* — the working agreements and general project context. Operator identity, employer, motives, and pointers to the operator's other projects are operator context, not project context; they belong in device-local memory, not in a world-readable repo. A constraint whose *rationale* is personal (e.g. why a clean-room rule exists) is stated as the impersonal rule the agent enforces, with the personal "why" left out.
