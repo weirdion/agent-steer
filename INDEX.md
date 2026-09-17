@@ -17,6 +17,7 @@
 | [ways-of-working/knowledge-layers.md](ways-of-working/knowledge-layers.md) | Deciding where a piece of knowledge belongs (durable context vs live state vs decision vs deferred work vs memory), or updating any of them. |
 | [ways-of-working/workflow.md](ways-of-working/workflow.md) | Taking on a non-trivial task: how to move from intent to shipped, and how to size and commit the work. |
 | [ways-of-working/verification.md](ways-of-working/verification.md) | Claiming something works; tracking what still needs hands-on confirmation the agent can't perform. |
+| [ways-of-working/self-review.md](ways-of-working/self-review.md) | Before committing or pushing a non-trivial change: the reviewer-perspective pass (where is it wrong, not just does it work), and the staging/push/CI checks that live outside the diff. |
 | [ways-of-working/memory-discipline.md](ways-of-working/memory-discipline.md) | Writing a memory, or deciding whether a learning is about this project or about the operator (and belongs in the steer's preferences instead). |
 
 ## Preferences — load on relevance
