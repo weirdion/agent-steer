@@ -19,12 +19,16 @@ Two practices that recurred in adopting projects after the 2026-09-17 promotion:
 - **`spine/principles.md`:** dependencies are inputs. Pin releases at least two weeks old, and read
   what an update changed. Two projects use it, one deferring it to pre-production.
 
+- **`boot-contract.md`:** a resume after context compaction counts as a session start, so re-run
+  the boot. Thin evidence: one project, plus a resume in a second one where the boot didn't re-run
+  until the operator asked. Promoted anyway because the fix is one clause and needs no duplication:
+  the thin `CLAUDE.md` pointer already survives compaction. What was missing was the trigger.
+
 **Considered, not promoted this round (operator's call):**
 - prove the run (skip counts, compiled-out code);
-- scope-creep and real-mechanism checks;
-- re-reading the manual after a context compaction.
+- scope-creep and real-mechanism checks. Scope is partly covered now by the bigger-picture question.
 
-All three came from one project; they stay project-local until they recur.
+Both came from one project; they stay project-local until they recur.
 
 Also redacted a project name from the 2026-09-17 heading (no project names in the steer).
 

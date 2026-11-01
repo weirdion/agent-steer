@@ -41,7 +41,7 @@ The practice is independent of which coding agent reads it. Different tools have
 
 ## Session start, session end
 
-- **Start:** follow the read order. If the operator names a specific task, load the topics that task touches; you don't have to read everything every time, but you do have to read the top-of-log live state so you know where things stand.
+- **Start:** follow the read order. If the operator names a specific task, load the topics that task touches; you don't have to read everything every time, but you do have to read the top-of-log live state so you know where things stand. **A resume after context compaction counts as a start.** The summary has replaced what was read: the spine is now a paraphrase, and topics loaded mid-session are gone. Re-run the boot before the next commit or decision. A summary of the rules is not the rules.
 - **End:** append one brief entry to the live-state log — what was done, where it stands, the next step. This is the handoff to the next session (which may be a compacted *you*). Keep it tight; link to context updates rather than restating them.
 
 *Why this contract exists:* runtimes are disposable and context windows compact. The project's durable agent knowledge — not the agent's memory of the conversation — is what persists. If the boot contract is honored, any fresh session is as oriented as the last one. If it's skipped, the agent re-derives from scratch, re-asks answered questions, and re-litigates settled decisions. Reading is cheap; the re-derivation is not.
