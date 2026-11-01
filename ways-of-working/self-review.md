@@ -13,16 +13,28 @@ before pushing.
 
 Go through these against the actual diff, in order:
 
-1. **What did I assume without checking?** Names, formats, an upstream's actual return shape, a
+1. **Does this fit the bigger picture?** Re-read the goal, then the diff. Does it solve the actual
+   problem, at the right layer, in the way the rest of the system does things? Did adjacent
+   "improvements" ride along that the task didn't ask for? A correct change to the wrong thing is
+   still wrong.
+2. **What did I assume without checking?** Names, formats, an upstream's actual return shape, a
    library's real behavior. Assumptions are where confident-looking code is wrong.
-2. **What did I write a comment (or a message) about that the code doesn't actually do?** A comment
+3. **What did I write a comment (or a message) about that the code doesn't actually do?** A comment
    that describes an intention the code drifted from is a lie the next reader will trust.
-3. **What's the blast radius if this is wrong?** Who else calls it, what breaks downstream, how far
+4. **What's the blast radius if this is wrong?** Who else calls it, what breaks downstream, how far
    the damage reaches. This sets how hard to look at the rest.
-4. **What does this log, store, or expose that it needn't?** Secrets into state or logs, data
-   crossing a boundary it shouldn't, more surface than the task required.
-5. **What does this assume that's true today but won't be later?** A constant that will drift, an
-   ordering that holds only by luck, a format that will break its consumers on the next change.
+5. **Where is the security hole?** Look for it, don't just check it's absent: input crossing a
+   trust boundary unvalidated, a missing or bypassable authorization check, a string reaching a
+   shell, query, or path, a secret in code. Then, what does this log, store, or expose that it
+   needn't? Secrets in state or logs, data crossing a boundary it shouldn't, more surface than the
+   task required.
+6. **What's short-sighted?** What does this assume that's true today but won't be later? A
+   constant that will drift, an ordering that holds only by luck, a format that will break its
+   consumers on the next change, a shortcut that's cheap now and expensive to unwind.
+7. **What's redundant?** Logic that duplicates something the codebase already has, a helper
+   reimplemented instead of reused, dead code, unused parameters or imports, leftover debugging, a
+   check another path already guarantees. Delete or reuse it. Every line the next reader has to
+   reason about should earn its place.
 
 **Verify assumptions by reading the source, not by reasoning about it.** When the review turns up "I
 think the upstream returns X" — go read what it actually returns. Reasoning about behavior is how the
@@ -47,6 +59,28 @@ is the half that fails in the real run.
 *Calibration:* look hardest at code that has **never been exercised** — unexercised integration and
 glue between systems is where defects cluster, while settled, exercised code is usually clean. "It's
 never been run but it's probably fine" is the assumption this pass exists to kill.
+
+## Mutation pass on the rules that matter
+
+A passing test proves the code works. It doesn't prove the test would notice if the code stopped
+working. For every **security or state rule** in the change (an authorization check, a validation, a
+uniqueness or ownership condition, an expiry), remove or invert the protection, run the tests, and
+confirm at least one goes red. Then restore it.
+
+- **A mutant that doesn't compile hasn't been caught.** The compiler or linter rejected it, not a
+  test. Rewrite the mutation so it builds while still disabling the check.
+- **A surviving mutant is a finding, and it's one of two things:**
+  - a **test gap**: no test exercises the case. Fix the test, ideally with a fixture that isolates
+    the case, so shared state can't make it pass by accident;
+  - a **dead check**: some other path already forces the outcome. Delete it, and leave a comment
+    saying what enforces the rule instead. Then confirm no test was only exercising the dead check.
+- **Chase every survivor to the end, and report the score** (caught of total). A first pass that
+  catches most mutants usually hides the interesting ones in the remainder.
+
+*Why:* review in the author's frame trusts the tests; this checks them. It finds the untested branch
+that a green suite hides, and it finds redundant checks that look like defense but protect nothing,
+which are clutter the next reader has to reason about. Scope it to rules whose failure would be a
+security or data-integrity incident. It isn't coverage-chasing.
 
 ## Staging and push have their own reviews
 

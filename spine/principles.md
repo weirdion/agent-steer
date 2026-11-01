@@ -42,9 +42,9 @@ Type the code. Use the language's constructs — classes, enums, dataclasses, in
 
 ## Security is the default, not a pass
 
-Assume every input is hostile until validated at the trust boundary. Secrets never live in code or git — only in a secret store or a gitignored local file, with a committed `.example` template. No dynamic execution of user-controlled strings. Sanitize anything that reaches the filesystem, a shell, or a query.
+Assume every input is hostile until validated at the trust boundary. Secrets never live in code or git — only in a secret store or a gitignored local file, with a committed `.example` template. No dynamic execution of user-controlled strings. Sanitize anything that reaches the filesystem, a shell, or a query. Dependencies are inputs too: pin releases at least two weeks old rather than whatever `@latest` resolves to today, and read what an update actually changed (versions, transitive additions) before keeping it.
 
-*Why:* a security gap is cheap to prevent and expensive to remedy — a hardcoded secret today is an incident at scale, an unvalidated path today is a traversal tomorrow. This is the one principle with no "when it's not absolute" — the cost asymmetry is too steep.
+*Why:* a security gap is cheap to prevent and expensive to remedy — a hardcoded secret today is an incident at scale, an unvalidated path today is a traversal tomorrow. A dependency's age window lets a compromised or broken release be caught and yanked upstream before it reaches you. This is the one principle with no "when it's not absolute" — the cost asymmetry is too steep.
 
 ## Document the *why*, inline, not the *what*
 

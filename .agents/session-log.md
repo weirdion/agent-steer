@@ -4,7 +4,33 @@ Live state for the steer itself. Newest first. Read the top first; write the top
 
 ---
 
-## 2026-09-17 — FurDocs practices promoted; public-doc redaction rule extended
+## 2026-11-01 — Mutation pass and dependency age promoted
+
+Two practices that recurred in adopting projects after the 2026-09-17 promotion:
+
+- **`self-review.md`:** a new *Mutation pass* section. For security and state rules, remove each
+  protection and confirm a test goes red. A mutant that doesn't compile isn't caught. A survivor is
+  either a test gap or a dead check to delete. Two projects adopted it independently.
+- **`self-review.md` questions:** checked against the operator's stated intent ("be critical of
+  its own code, verify the bigger picture, security issues, catch short-sighted decisions and
+  redundant code before each commit"). Three questions were added: bigger picture/scope first;
+  security as an active hunt, folded into the exposure question; redundancy. The future-assumption
+  question is named *short-sighted* so it matches how the operator thinks of it.
+- **`spine/principles.md`:** dependencies are inputs. Pin releases at least two weeks old, and read
+  what an update changed. Two projects use it, one deferring it to pre-production.
+
+**Considered, not promoted this round (operator's call):**
+- prove the run (skip counts, compiled-out code);
+- scope-creep and real-mechanism checks;
+- re-reading the manual after a context compaction.
+
+All three came from one project; they stay project-local until they recur.
+
+Also redacted a project name from the 2026-09-17 heading (no project names in the steer).
+
+---
+
+## 2026-09-17 — Cross-project practices promoted; public-doc redaction rule extended
 
 Cross-project practices from another repo's sessions were promoted into the steer. Several had
 independently recurred (a phased "demonstrable slice" build and an ADR↔decisions pointer showed up in
